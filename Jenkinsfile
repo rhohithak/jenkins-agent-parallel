@@ -1,3 +1,4 @@
+
 pipeline {
     agent none
     environment {
@@ -23,12 +24,6 @@ pipeline {
                             sh 'gcc -o reverse reverse.c'
                             sh "./reverse ${TEXT}"
                         }
-                 stage('checking the parallel') {
-                    agent {
-                        label 'prod'
-                    }
-                   steps {
-                       echo "parallel success "
                 }
             }
         }
@@ -44,5 +39,4 @@ pipeline {
             echo 'This will run only if the pipeline fails'
         }
     }
-}
 }
